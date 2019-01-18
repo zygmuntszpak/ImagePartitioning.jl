@@ -1,5 +1,15 @@
 module ImagePartitioning
+using Images
 
-greet() = print("Hello World!")
+
+abstract type PartitionScheme end
+struct AllowContraction <: PartitionScheme end
+
+include("partition.jl")
+
+export
+	# main functions
+    partition_image,
+	AllowContraction
 
 end # module

@@ -1,6 +1,6 @@
 using ImagePartitioning
-using Test
+using Test, TestImages
 
 @testset "ImagePartitioning.jl" begin
-    # Write your own tests here.
+    include("partition.jl")
 end

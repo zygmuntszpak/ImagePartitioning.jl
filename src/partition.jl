@@ -13,12 +13,16 @@ function subdivide_interval(section::Int, w::Int)
     remaining_units = section - w*num_equal_segments
     if remaining_units == 0
         first_segment = 1:w
-        last_segment = (section - w + 1):(w*num_equal_segments)
-        num_equal_segments -= 2
+        last_segment = (section - w + 1):section
+        total_segments = num_equal_segments
     else
-
+        first_segment = 1:floor(Int,remaining_units / 2)
+        v = ceil(Int, remaining_units / 2)
+        last_segment = (section - v + 1):section
+        total_segments = num_equal_segments + 2
+        @show num_equal_segments, total_segments, remaining_units, first_segment, last_segment , v
     end
-    total_segments = num_equal_segments + 2
+
     segments = Array{UnitRange{Int},1}(undef,total_segments)
     segments[1] = first_segment
     segments[end] = last_segment

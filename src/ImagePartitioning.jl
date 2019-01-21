@@ -1,5 +1,4 @@
 module ImagePartitioning
-using Images
 
 
 abstract type PartitionScheme end
